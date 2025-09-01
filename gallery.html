@@ -4,302 +4,86 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Gallery | A+ Adventures</title>
+    <meta name="description" content="Explore photos from A+ Adventures expeditions around the world.">
     <link rel="stylesheet" href="css/style.css">
     <link rel="stylesheet" href="css/gallery.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Montserrat:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;700&family=Montserrat:wght@700&display=swap" rel="stylesheet">
 </head>
 <body>
-    <!-- Header Section (Same as index.html) -->
-    <header>
-        <nav class="navbar">
-            <div class="logo">
-                <a href="index.html">
-                    <span class="logo-text">A+ Adventures</span>
-                </a>
-            </div>
-            <div class="hamburger" id="hamburger">
-                <div class="bar"></div>
-                <div class="bar"></div>
-                <div class="bar"></div>
-            </div>
-            <ul class="nav-menu" id="nav-menu">
-                <li><a href="index.html">Home</a></li>
-                <li><a href="adventures.html">Adventures</a></li>
-                <li><a href="destinations.html">Destinations</a></li>
-                <li><a href="gallery.html" class="active">Gallery</a></li>
-                <li><a href="about.html">About Us</a></li>
-                <li><a href="contact.html" class="nav-cta">Contact Us</a></li>
-            </ul>
-        </nav>
+    <header class="main-header" id="main-header">
+        <div class="container">
+            <nav class="navbar">
+                <a href="index.html" class="logo"><span class="logo-text">A+ Adventures</span></a>
+                <button class="hamburger" id="hamburger" aria-label="Open navigation menu" aria-expanded="false" aria-controls="nav-menu">
+                    <span class="bar"></span><span class="bar"></span><span class="bar"></span>
+                </button>
+                <ul class="nav-menu" id="nav-menu">
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="adventures.html">Adventures</a></li>
+                    <li><a href="gallery.html" class="active">Gallery</a></li>
+                    <li><a href="about.html">About</a></li>
+                    <li><a href="contact.html" class="nav-cta">Contact</a></li>
+                </ul>
+            </nav>
+        </div>
     </header>
 
-    <!-- Page Header -->
-    <section class="page-header">
-        <div class="page-header-content">
-            <h1>Adventure Gallery</h1>
-            <p>Capturing moments of awe and excitement from our expeditions</p>
-        </div>
-    </section>
-
-    <!-- Gallery Filter -->
-    <section class="gallery-filter">
-        <div class="container">
-            <div class="filter-buttons">
-                <button class="filter-btn active" data-filter="all">All</button>
-                <button class="filter-btn" data-filter="mountains">Mountains</button>
-                <button class="filter-btn" data-filter="wildlife">Wildlife</button>
-                <button class="filter-btn" data-filter="water">Water Adventures</button>
-                <button class="filter-btn" data-filter="camping">Camping</button>
-                <button class="filter-btn" data-filter="aerial">Aerial Views</button>
+    <main>
+        <section class="page-header">
+            <div class="container">
+                <h1>Our Adventure Gallery</h1>
+                <p>Moments of awe and excitement from our expeditions</p>
             </div>
-        </div>
-    </section>
+        </section>
 
-    <!-- Gallery Grid -->
-    <section class="gallery-section">
-        <div class="container">
-            <div class="gallery-grid">
-                <!-- Mountains -->
-                <div class="gallery-item" data-category="mountains">
-                    <div class="gallery-image">
-                        <img src="images/gallery/mountain1.jpg" alt="Mountain Trekking in the Himalayas">
-                        <div class="gallery-overlay">
-                            <h3>Mountain Trekking in the Himalayas</h3>
-                            <p>Nepal</p>
-                            <a href="images/gallery/mountain1.jpg" class="lightbox-trigger"><i class="fas fa-expand"></i></a>
-                        </div>
-                    </div>
+        <section class="gallery-section section">
+            <div class="container">
+                <div class="filter-buttons">
+                    <button class="filter-btn active" data-filter="all">All</button>
+                    <button class="filter-btn" data-filter="mountains">Mountains</button>
+                    <button class="filter-btn" data-filter="wildlife">Wildlife</button>
+                    <button class="filter-btn" data-filter="water">Water</button>
+                    <button class="filter-btn" data-filter="aerial">Aerial</button>
                 </div>
-                
-                <div class="gallery-item" data-category="mountains">
-                    <div class="gallery-image">
-                        <img src="images/gallery/mountain2.jpg" alt="Alpine Mountain Range">
-                        <div class="gallery-overlay">
-                            <h3>Alpine Mountain Range</h3>
-                            <p>Switzerland</p>
-                            <a href="images/gallery/mountain2.jpg" class="lightbox-trigger"><i class="fas fa-expand"></i></a>
-                        </div>
-                    </div>
+
+                <div class="gallery-grid">
+                    <!-- Add up to 29+ images here. Example structure below. -->
+                    <!-- For lazy loading, change `src` to `data-src` and add `class="lazyload"` -->
+                    <a href="images/gallery/mountain1.jpg" class="gallery-item" data-category="mountains">
+                        <img src="images/gallery/mountain1.jpg" alt="Mountain landscape" loading="lazy">
+                        <div class="gallery-overlay"><span><i class="fas fa-search-plus"></i></span></div>
+                    </a>
+                    <a href="images/gallery/wildlife1.jpg" class="gallery-item" data-category="wildlife">
+                        <img src="images/gallery/wildlife1.jpg" alt="Lion on safari" loading="lazy">
+                        <div class="gallery-overlay"><span><i class="fas fa-search-plus"></i></span></div>
+                    </a>
+                    <a href="images/gallery/water1.jpg" class="gallery-item" data-category="water">
+                        <img src="images/gallery/water1.jpg" alt="Kayaking on a lake" loading="lazy">
+                        <div class="gallery-overlay"><span><i class="fas fa-search-plus"></i></span></div>
+                    </a>
+                    <a href="images/gallery/aerial1.jpg" class="gallery-item" data-category="aerial">
+                        <img src="images/gallery/aerial1.jpg" alt="Hot air balloon view" loading="lazy">
+                        <div class="gallery-overlay"><span><i class="fas fa-search-plus"></i></span></div>
+                    </a>
+                    <!-- Repeat for all your images, assigning the correct 'data-category' -->
+                    <a href="images/gallery/mountain2.jpg" class="gallery-item" data-category="mountains">
+                        <img src="images/gallery/mountain2.jpg" alt="Snowy peak" loading="lazy">
+                        <div class="gallery-overlay"><span><i class="fas fa-search-plus"></i></span></div>
+                    </a>
+                    <a href="images/gallery/wildlife2.jpg" class="gallery-item" data-category="wildlife">
+                        <img src="images/gallery/wildlife2.jpg" alt="Elephant herd" loading="lazy">
+                        <div class="gallery-overlay"><span><i class="fas fa-search-plus"></i></span></div>
+                    </a>
+                    <!-- ... Add the rest of your 29 images here ... -->
                 </div>
-                
-                <div class="gallery-item" data-category="mountains">
-                    <div class="gallery-image">
-                        <img src="images/gallery/mountain3.jpg" alt="Mountain Summit View">
-                        <div class="gallery-overlay">
-                            <h3>Mountain Summit View</h3>
-                            <p>Peru</p>
-                            <a href="images/gallery/mountain3.jpg" class="lightbox-trigger"><i class="fas fa-expand"></i></a>
-                        </div>
-                    </div>
-                </div>
-                
-                <div class="gallery-item" data-category="mountains">
-                    <div class="gallery-image">
-                        <img src="images/gallery/mountain4.jpg" alt="Sunrise at Mount Kilimanjaro">
-                        <div class="gallery-overlay">
-                            <h3>Sunrise at Mount Kilimanjaro</h3>
-                            <p>Tanzania</p>
-                            <a href="images/gallery/mountain4.jpg" class="lightbox-trigger"><i class="fas fa-expand"></i></a>
-                        </div>
-                    </div>
-                </div>
-                
-                <div class="gallery-item" data-category="mountains">
-                    <div class="gallery-image">
-                        <img src="images/gallery/mountain5.jpg" alt="Rocky Mountain Trail">
-                        <div class="gallery-overlay">
-                            <h3>Rocky Mountain Trail</h3>
-                            <p>Canada</p>
-                            <a href="images/gallery/mountain5.jpg" class="lightbox-trigger"><i class="fas fa-expand"></i></a>
-                        </div>
-                    </div>
-                </div>
-                
-                <!-- Wildlife -->
-                <div class="gallery-item" data-category="wildlife">
-                    <div class="gallery-image">
-                        <img src="images/gallery/wildlife1.jpg" alt="Lions in Serengeti">
-                        <div class="gallery-overlay">
-                            <h3>Lions in Serengeti</h3>
-                            <p>Tanzania</p>
-                            <a href="images/gallery/wildlife1.jpg" class="lightbox-trigger"><i class="fas fa-expand"></i></a>
-                        </div>
-                    </div>
-                </div>
-                
-                <div class="gallery-item" data-category="wildlife">
-                    <div class="gallery-image">
-                        <img src="images/gallery/wildlife2.jpg" alt="Elephants at Watering Hole">
-                        <div class="gallery-overlay">
-                            <h3>Elephants at Watering Hole</h3>
-                            <p>Kenya</p>
-                            <a href="images/gallery/wildlife2.jpg" class="lightbox-trigger"><i class="fas fa-expand"></i></a>
-                        </div>
-                    </div>
-                </div>
-                
-                <div class="gallery-item" data-category="wildlife">
-                    <div class="gallery-image">
-                        <img src="images/gallery/wildlife3.jpg" alt="Bengal Tigers">
-                        <div class="gallery-overlay">
-                            <h3>Bengal Tigers</h3>
-                            <p>India</p>
-                            <a href="images/gallery/wildlife3.jpg" class="lightbox-trigger"><i class="fas fa-expand"></i></a>
-                        </div>
-                    </div>
-                </div>
-                
-                <div class="gallery-item" data-category="wildlife">
-                    <div class="gallery-image">
-                        <img src="images/gallery/wildlife4.jpg" alt="Gorillas in Rwanda">
-                        <div class="gallery-overlay">
-                            <h3>Gorillas in Rwanda</h3>
-                            <p>Rwanda</p>
-                            <a href="images/gallery/wildlife4.jpg" class="lightbox-trigger"><i class="fas fa-expand"></i></a>
-                        </div>
-                    </div>
-                </div>
-                
-                <div class="gallery-item" data-category="wildlife">
-                    <div class="gallery-image">
-                        <img src="images/gallery/wildlife5.jpg" alt="Arctic Polar Bears">
-                        <div class="gallery-overlay">
-                            <h3>Arctic Polar Bears</h3>
-                            <p>Arctic Circle</p>
-                            <a href="images/gallery/wildlife5.jpg" class="lightbox-trigger"><i class="fas fa-expand"></i></a>
-                        </div>
-                    </div>
-                </div>
-                
-                <!-- Water Adventures -->
-                <div class="gallery-item" data-category="water">
-                    <div class="gallery-image">
-                        <img src="images/gallery/water1.jpg" alt="White Water Rafting">
-                        <div class="gallery-overlay">
-                            <h3>White Water Rafting</h3>
-                            <p>Colorado, USA</p>
-                            <a href="images/gallery/water1.jpg" class="lightbox-trigger"><i class="fas fa-expand"></i></a>
-                        </div>
-                    </div>
-                </div>
-                
-                <div class="gallery-item" data-category="water">
-                    <div class="gallery-image">
-                        <img src="images/gallery/water2.jpg" alt="Great Barrier Reef Diving">
-                        <div class="gallery-overlay">
-                            <h3>Great Barrier Reef Diving</h3>
-                            <p>Australia</p>
-                            <a href="images/gallery/water2.jpg" class="lightbox-trigger"><i class="fas fa-expand"></i></a>
-                        </div>
-                    </div>
-                </div>
-                
-                <div class="gallery-item" data-category="water">
-                    <div class="gallery-image">
-                        <img src="images/gallery/water3.jpg" alt="Kayaking Among Icebergs">
-                        <div class="gallery-overlay">
-                            <h3>Kayaking Among Icebergs</h3>
-                            <p>Alaska</p>
-                            <a href="images/gallery/water3.jpg" class="lightbox-trigger"><i class="fas fa-expand"></i></a>
-                        </div>
-                    </div>
-                </div>
-                
-                <div class="gallery-item" data-category="water">
-                    <div class="gallery-image">
-                        <img src="images/gallery/water4.jpg" alt="Surfing in Bali">
-                        <div class="gallery-overlay">
-                            <h3>Surfing in Bali</h3>
-                            <p>Indonesia</p>
-                            <a href="images/gallery/water4.jpg" class="lightbox-trigger"><i class="fas fa-expand"></i></a>
-                        </div>
-                    </div>
-                </div>
-                
-                <div class="gallery-item" data-category="water">
-                    <div class="gallery-image">
-                        <img src="images/gallery/water5.jpg" alt="Sailing Adventure">
-                        <div class="gallery-overlay">
-                            <h3>Sailing Adventure</h3>
-                            <p>Greece</p>
-                            <a href="images/gallery/water5.jpg" class="lightbox-trigger"><i class="fas fa-expand"></i></a>
-                        </div>
-                    </div>
-                </div>
-                
-                <!-- Camping -->
-                <div class="gallery-item" data-category="camping">
-                    <div class="gallery-image">
-                        <img src="images/gallery/camping1.jpg" alt="Lakeside Camp">
-                        <div class="gallery-overlay">
-                            <h3>Lakeside Camp</h3>
-                            <p>Montana, USA</p>
-                            <a href="images/gallery/camping1.jpg" class="lightbox-trigger"><i class="fas fa-expand"></i></a>
-                        </div>
-                    </div>
-                </div>
-                
-                <div class="gallery-item" data-category="camping">
-                    <div class="gallery-image">
-                        <img src="images/gallery/camping2.jpg" alt="Desert Camping Under Stars">
-                        <div class="gallery-overlay">
-                            <h3>Desert Camping Under Stars</h3>
-                            <p>Morocco</p>
-                            <a href="images/gallery/camping2.jpg" class="lightbox-trigger"><i class="fas fa-expand"></i></a>
-                        </div>
-                    </div>
-                </div>
-                
-                <div class="gallery-item" data-category="camping">
-                    <div class="gallery-image">
-                        <img src="images/gallery/camping3.jpg" alt="Forest Camp">
-                        <div class="gallery-overlay">
-                            <h3>Forest Camp</h3>
-                            <p>Oregon, USA</p>
-                            <a href="images/gallery/camping3.jpg" class="lightbox-trigger"><i class="fas fa-expand"></i></a>
-                        </div>
-                    </div>
-                </div>
-                
-                <div class="gallery-item" data-category="camping">
-                    <div class="gallery-image">
-                        <img src="images/gallery/camping4.jpg" alt="Mountainside Camp">
-                        <div class="gallery-overlay">
-                            <h3>Mountainside Camp</h3>
-                            <p>New Zealand</p>
-                            <a href="images/gallery/camping4.jpg" class="lightbox-trigger"><i class="fas fa-expand"></i></a>
-                        </div>
-                    </div>
-                </div>
-                
-                <div class="gallery-item" data-category="camping">
-                    <div class="gallery-image">
-                        <img src="images/gallery/camping5.jpg" alt="Arctic Base Camp">
-                        <div class="gallery-overlay">
-                            <h3>Arctic Base Camp</h3>
-                            <p>Iceland</p>
-                            <a href="images/gallery/camping5.jpg" class="lightbox-trigger"><i class="fas fa-expand"></i></a>
-                        </div>
-                    </div>
-                </div>
-                
-                <!-- Aerial Views -->
-                <div class="gallery-item" data-category="aerial">
-                    <div class="gallery-image">
-                        <img src="images/gallery/aerial1.jpg" alt="Paragliding Adventure">
-                        <div class="gallery-overlay">
-                            <h3>Paragliding Adventure</h3>
-                            <p>Switzerland</p>
-                            <a href="images/gallery/aerial1.jpg" class="lightbox-trigger"><i class="fas fa-expand"></i></a>
-                        </div>
-                    </div>
-                </div>
-                
-                <div class="gallery-item" data-category="aerial">
-                    <div class="gallery-image">
-                        <img src="images/gallery/aerial2.jpg" alt="Hot Air Balloon Safari">
-                        <div class="gallery-overlay">
-                            <h3>Hot Air Balloon Safari</h3>
-                            <p>Kenya</p>
-                            <a href="images/gallery/aerial2.jpg" class="lightbox-trigger"><i class
+            </div>
+        </section>
+    </main>
+    
+    <!-- Add your footer here (same as index.html) -->
+
+    <script src="js/main.js"></script>
+    <script src="js/gallery.js"></script>
+</body>
+</html>
