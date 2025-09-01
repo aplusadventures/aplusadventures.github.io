@@ -1,353 +1,262 @@
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>A+ Adventures | Extraordinary Journeys Await</title>
+    <meta name="description" content="A+ Adventures offers unforgettable, eco-friendly adventure tourism experiences. Explore mountains, jungles, and oceans with our expert guides.">
     <link rel="stylesheet" href="css/style.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Montserrat:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;700&family=Montserrat:wght@700&display=swap" rel="stylesheet">
 </head>
 <body>
-    <!-- Header Section -->
-    <header>
-        <nav class="navbar">
-            <div class="logo">
-                <a href="index.html">
+    <header class="main-header" id="main-header">
+        <div class="container">
+            <nav class="navbar">
+                <a href="index.html" class="logo">
                     <span class="logo-text">A+ Adventures</span>
                 </a>
-            </div>
-            <div class="hamburger" id="hamburger">
-                <div class="bar"></div>
-                <div class="bar"></div>
-                <div class="bar"></div>
-            </div>
-            <ul class="nav-menu" id="nav-menu">
-                <li><a href="index.html" class="active">Home</a></li>
-                <li><a href="adventures.html">Adventures</a></li>
-                <li><a href="destinations.html">Destinations</a></li>
-                <li><a href="gallery.html">Gallery</a></li>
-                <li><a href="about.html">About Us</a></li>
-                <li><a href="contact.html" class="nav-cta">Contact Us</a></li>
-            </ul>
-        </nav>
+                <button class="hamburger" id="hamburger" aria-label="Open navigation menu" aria-expanded="false" aria-controls="nav-menu">
+                    <span class="bar"></span>
+                    <span class="bar"></span>
+                    <span class="bar"></span>
+                </button>
+                <ul class="nav-menu" id="nav-menu">
+                    <li><a href="index.html" class="active">Home</a></li>
+                    <li><a href="adventures.html">Adventures</a></li>
+                    <li><a href="gallery.html">Gallery</a></li>
+                    <li><a href="about.html">About</a></li>
+                    <li><a href="contact.html" class="nav-cta">Contact</a></li>
+                </ul>
+            </nav>
+        </div>
     </header>
 
-    <!-- Hero Section -->
-    <section class="hero">
-        <div class="hero-content">
-            <h1>Explore the Extraordinary</h1>
-            <p>Unforgettable adventures await with A+ Adventures</p>
-            <div class="hero-cta">
-                <a href="adventures.html" class="btn btn-primary">Explore Adventures</a>
-                <a href="#featured" class="btn btn-secondary">Popular Trips</a>
+    <main>
+        <section class="hero">
+            <div class="hero-content">
+                <h1>Explore the Extraordinary</h1>
+                <p>Unforgettable, sustainable, and thrilling adventures await. Your next journey starts here.</p>
+                <div class="hero-cta">
+                    <a href="adventures.html" class="btn btn-primary">Explore Adventures</a>
+                    <a href="#featured" class="btn btn-secondary">Popular Trips</a>
+                </div>
             </div>
-        </div>
-        <div class="hero-overlay"></div>
-    </section>
+        </section>
 
-    <!-- Search Section -->
-    <section class="search-section">
-        <div class="container">
-            <div class="search-box">
-                <h3>Find Your Perfect Adventure</h3>
-                <form class="search-form">
-                    <div class="form-group">
-                        <label for="destination">Destination</label>
-                        <select id="destination" name="destination">
-                            <option value="">Select Destination</option>
-                            <option value="mountains">Mountains</option>
-                            <option value="beaches">Beaches</option>
-                            <option value="forests">Forests</option>
-                            <option value="deserts">Deserts</option>
-                            <option value="islands">Islands</option>
-                        </select>
-                    </div>
-                    <div class="form-group">
-                        <label for="activity">Activity</label>
-                        <select id="activity" name="activity">
-                            <option value="">Select Activity</option>
-                            <option value="hiking">Hiking</option>
-                            <option value="rafting">Rafting</option>
-                            <option value="camping">Camping</option>
-                            <option value="safari">Safari</option>
-                            <option value="skydiving">Skydiving</option>
-                        </select>
-                    </div>
-                    <div class="form-group">
-                        <label for="duration">Duration</label>
-                        <select id="duration" name="duration">
-                            <option value="">Select Duration</option>
-                            <option value="1-3">1-3 Days</option>
-                            <option value="4-7">4-7 Days</option>
-                            <option value="8-14">8-14 Days</option>
-                            <option value="15+">15+ Days</option>
-                        </select>
-                    </div>
-                    <button type="submit" class="btn btn-search">Search</button>
-                </form>
-            </div>
-        </div>
-    </section>
-
-    <!-- Featured Adventures -->
-    <section id="featured" class="featured-adventures">
-        <div class="container">
-            <div class="section-header">
-                <h2>Featured Adventures</h2>
-                <p>Discover our most popular and exciting adventures</p>
-            </div>
-            <div class="adventure-cards">
-                <div class="adventure-card">
-                    <div class="card-image">
-                        <span class="adventure-tag">Best Seller</span>
-                    </div>
-                    <div class="card-content">
-                        <h3>Himalayan Trek Expedition</h3>
-                        <div class="card-meta">
-                            <span><i class="fas fa-map-marker-alt"></i> Nepal</span>
-                            <span><i class="far fa-clock"></i> 10 Days</span>
+        <section class="search-section">
+            <div class="container">
+                <div class="search-box">
+                    <h3>Find Your Next Adventure</h3>
+                    <form class="search-form">
+                        <div class="form-group">
+                            <label for="destination">Destination</label>
+                            <select id="destination" name="destination">
+                                <option value="">Anywhere</option>
+                                <option value="mountains">Mountains</option>
+                                <option value="jungles">Jungles</option>
+                                <option value="oceans">Oceans</option>
+                                <option value="deserts">Deserts</option>
+                            </select>
                         </div>
-                        <p>Experience the breathtaking beauty of the Himalayas on this unforgettable trekking adventure through ancient trails and stunning landscapes.</p>
-                        <div class="card-footer">
-                            <span class="price">From $1,899</span>
-                            <a href="adventures.html#himalayan-trek" class="btn btn-outline">View Details</a>
+                        <div class="form-group">
+                            <label for="activity">Activity</label>
+                            <select id="activity" name="activity">
+                                <option value="">Any Activity</option>
+                                <option value="hiking">Hiking</option>
+                                <option value="rafting">Rafting</option>
+                                <option value="diving">Diving</option>
+                                <option value="safari">Safari</option>
+                            </select>
                         </div>
-                    </div>
-                </div>
-
-                <div class="adventure-card">
-                    <div class="card-image">
-                        <span class="adventure-tag">New</span>
-                    </div>
-                    <div class="card-content">
-                        <h3>Amazon Rainforest Expedition</h3>
-                        <div class="card-meta">
-                            <span><i class="fas fa-map-marker-alt"></i> Brazil</span>
-                            <span><i class="far fa-clock"></i> 7 Days</span>
+                        <div class="form-group">
+                            <label for="duration">Duration</label>
+                            <select id="duration" name="duration">
+                                <option value="">Any Duration</option>
+                                <option value="weekend">Weekend</option>
+                                <option value="1-week">1 Week</option>
+                                <option value="2-weeks">2 Weeks</option>
+                            </select>
                         </div>
-                        <p>Explore the mysterious Amazon rainforest and discover incredible biodiversity, indigenous cultures, and breathtaking natural wonders.</p>
-                        <div class="card-footer">
-                            <span class="price">From $1,499</span>
-                            <a href="adventures.html#amazon-expedition" class="btn btn-outline">View Details</a>
+                        <button type="submit" class="btn btn-search" aria-label="Search adventures"><i class="fas fa-search"></i></button>
+                    </form>
+                </div>
+            </div>
+        </section>
+
+        <section id="featured" class="section featured-adventures">
+            <div class="container">
+                <div class="section-header">
+                    <h2>Featured Adventures</h2>
+                    <p>Discover our most popular and highly-rated journeys</p>
+                </div>
+                <div class="adventure-cards">
+                    <article class="adventure-card">
+                        <div class="card-image"><span class="adventure-tag">Best Seller</span></div>
+                        <div class="card-content">
+                            <h3>Himalayan Trek Expedition</h3>
+                            <div class="card-meta">
+                                <span><i class="fas fa-map-marker-alt"></i> Nepal</span>
+                                <span><i class="far fa-clock"></i> 10 Days</span>
+                            </div>
+                            <p>Experience the breathtaking beauty of the Himalayas on this unforgettable trekking adventure through ancient trails.</p>
+                            <div class="card-footer">
+                                <a href="adventures.html#himalayan-trek" class="btn btn-outline">View Details</a>
+                            </div>
                         </div>
-                    </div>
-                </div>
+                    </article>
 
-                <div class="adventure-card">
-                    <div class="card-image">
-                        <span class="adventure-tag">Popular</span>
-                    </div>
-                    <div class="card-content">
-                        <h3>African Safari Adventure</h3>
-                        <div class="card-meta">
-                            <span><i class="fas fa-map-marker-alt"></i> Tanzania</span>
-                            <span><i class="far fa-clock"></i> 8 Days</span>
+                    <article class="adventure-card">
+                        <div class="card-image"><span class="adventure-tag">New</span></div>
+                        <div class="card-content">
+                            <h3>Amazon Rainforest Expedition</h3>
+                            <div class="card-meta">
+                                <span><i class="fas fa-map-marker-alt"></i> Brazil</span>
+                                <span><i class="far fa-clock"></i> 7 Days</span>
+                            </div>
+                            <p>Immerse yourself in the world's largest tropical rainforest and discover its incredible biodiversity and indigenous cultures.</p>
+                            <div class="card-footer">
+                                <a href="adventures.html#amazon-expedition" class="btn btn-outline">View Details</a>
+                            </div>
                         </div>
-                        <p>Witness the majestic wildlife of Africa in their natural habitat on this unforgettable safari experience through the Serengeti plains.</p>
-                        <div class="card-footer">
-                            <span class="price">From $2,299</span>
-                            <a href="adventures.html#african-safari" class="btn btn-outline">View Details</a>
+                    </article>
+
+                    <article class="adventure-card">
+                        <div class="card-image"><span class="adventure-tag">Popular</span></div>
+                        <div class="card-content">
+                            <h3>African Safari Adventure</h3>
+                            <div class="card-meta">
+                                <span><i class="fas fa-map-marker-alt"></i> Tanzania</span>
+                                <span><i class="far fa-clock"></i> 8 Days</span>
+                            </div>
+                            <p>Witness the majestic wildlife of Africa in their natural habitat on this unforgettable safari through the Serengeti plains.</p>
+                            <div class="card-footer">
+                                <a href="adventures.html#african-safari" class="btn btn-outline">View Details</a>
+                            </div>
                         </div>
-                    </div>
+                    </article>
+                </div>
+                <div class="view-all">
+                    <a href="adventures.html" class="btn btn-primary">View All Adventures</a>
                 </div>
             </div>
-            <div class="view-all">
-                <a href="adventures.html" class="btn btn-tertiary">View All Adventures</a>
-            </div>
-        </div>
-    </section>
+        </section>
 
-    <!-- Why Choose Us -->
-    <section class="why-choose-us">
-        <div class="container">
-            <div class="section-header">
-                <h2>Why Choose A+ Adventures?</h2>
-                <p>We're committed to providing exceptional adventure experiences</p>
-            </div>
-            <div class="features-grid">
-                <div class="feature">
-                    <div class="feature-icon">
-                        <i class="fas fa-medal"></i>
-                    </div>
-                    <h3>Expert Guides</h3>
-                    <p>Our certified guides ensure safety while sharing fascinating local knowledge throughout your journey.</p>
+        <section class="section why-choose-us">
+            <div class="container">
+                <div class="section-header">
+                    <h2>Why A+ Adventures?</h2>
+                    <p>We're committed to providing exceptional experiences</p>
                 </div>
-                <div class="feature">
-                    <div class="feature-icon">
-                        <i class="fas fa-route"></i>
+                <div class="features-grid">
+                    <div class="feature">
+                        <div class="feature-icon"><i class="fas fa-medal"></i></div>
+                        <h3>Expert Guides</h3>
+                        <p>Our certified, passionate guides ensure your safety and share deep local knowledge.</p>
                     </div>
-                    <h3>Unique Itineraries</h3>
-                    <p>Carefully crafted itineraries that balance must-see highlights with off-the-beaten-path experiences.</p>
-                </div>
-                <div class="feature">
-                    <div class="feature-icon">
-                        <i class="fas fa-leaf"></i>
+                    <div class="feature">
+                        <div class="feature-icon"><i class="fas fa-route"></i></div>
+                        <h3>Unique Itineraries</h3>
+                        <p>We craft balanced itineraries that mix iconic highlights with authentic, off-the-beaten-path discoveries.</p>
                     </div>
-                    <h3>Eco-Friendly</h3>
-                    <p>Sustainable practices that minimize our environmental footprint and support local communities.</p>
-                </div>
-                <div class="feature">
-                    <div class="feature-icon">
-                        <i class="fas fa-user-shield"></i>
+                    <div class="feature">
+                        <div class="feature-icon"><i class="fas fa-leaf"></i></div>
+                        <h3>Eco-Friendly</h3>
+                        <p>We are committed to sustainable practices that protect our planet and support local communities.</p>
                     </div>
-                    <h3>Safety First</h3>
-                    <p>Comprehensive safety measures and protocols to ensure your wellbeing throughout your adventure.</p>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Gallery Preview -->
-    <section class="gallery-preview">
-        <div class="container">
-            <div class="section-header">
-                <h2>Adventure Gallery</h2>
-                <p>Glimpses of the extraordinary experiences that await you</p>
-            </div>
-            <div class="gallery-container">
-                <div class="gallery-item">
-                    <div class="gallery-overlay">
-                        <span>Mountaineering</span>
-                    </div>
-                </div>
-                <div class="gallery-item">
-                    <div class="gallery-overlay">
-                        <span>Wildlife Safari</span>
-                    </div>
-                </div>
-                <div class="gallery-item">
-                    <div class="gallery-overlay">
-                        <span>Water Rafting</span>
-                    </div>
-                </div>
-                <div class="gallery-item">
-                    <div class="gallery-overlay">
-                        <span>Camping</span>
-                    </div>
-                </div>
-                <div class="gallery-item">
-                    <div class="gallery-overlay">
-                        <span>Scuba Diving</span>
-                    </div>
-                </div>
-                <div class="gallery-item">
-                    <div class="gallery-overlay">
-                        <span>Paragliding</span>
+                    <div class="feature">
+                        <div class="feature-icon"><i class="fas fa-user-shield"></i></div>
+                        <h3>Safety First</h3>
+                        <p>With comprehensive safety protocols and 24/7 support, you can explore with peace of mind.</p>
                     </div>
                 </div>
             </div>
-            <div class="view-all">
-                <a href="gallery.html" class="btn btn-tertiary">View Complete Gallery</a>
-            </div>
-        </div>
-    </section>
-
-    <!-- Testimonials -->
-    <section class="testimonials">
-        <div class="container">
-            <div class="section-header">
-                <h2>What Our Adventurers Say</h2>
-                <p>Read about experiences from our satisfied adventurers</p>
-            </div>
-            <div class="testimonial-slider" id="testimonial-slider">
-                <div class="testimonial-slide active">
-                    <div class="testimonial-content">
-                        <div class="quote-icon"><i class="fas fa-quote-left"></i></div>
-                        <p>The Himalayan Trek Expedition exceeded all my expectations. The guides were knowledgeable and friendly, and the views were absolutely breathtaking. A+ Adventures made sure everything was perfectly organized.</p>
-                        <div class="testimonial-author">
-                            <h4>Michael Johnson</h4>
-                            <p>Himalayan Trek Expedition</p>
+        </section>
+        
+        <section class="section testimonials">
+            <div class="container">
+                <div class="section-header">
+                    <h2>What Our Adventurers Say</h2>
+                </div>
+                <div class="testimonial-slider" id="testimonial-slider">
+                    <div class="testimonial-slides">
+                        <div class="testimonial-slide">
+                            <div class="testimonial-content">
+                                <div class="quote-icon"><i class="fas fa-quote-left"></i></div>
+                                <p>"The Himalayan Trek exceeded all expectations. The guides were incredible, and the views were life-changing. A+ Adventures handled everything perfectly."</p>
+                                <div class="testimonial-author">
+                                    <h4>Michael J.</h4>
+                                    <p>Himalayan Trek Adventurer</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="testimonial-slide">
+                            <div class="testimonial-content">
+                                <div class="quote-icon"><i class="fas fa-quote-left"></i></div>
+                                <p>"Our Amazon expedition was the adventure of a lifetime! The local guides were so knowledgeable. Highly recommend A+ for an authentic experience."</p>
+                                <div class="testimonial-author">
+                                    <h4>Sarah W.</h4>
+                                    <p>Amazon Expedition Adventurer</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="testimonial-slide">
+                            <div class="testimonial-content">
+                                <div class="quote-icon"><i class="fas fa-quote-left"></i></div>
+                                <p>"The African Safari was simply magical. We saw the Big Five, and our guide's expertise was outstanding. A perfectly organized, unforgettable trip."</p>
+                                <div class="testimonial-author">
+                                    <h4>David & Emma T.</h4>
+                                    <p>African Safari Adventurers</p>
+                                </div>
+                            </div>
                         </div>
                     </div>
-                </div>
-                <div class="testimonial-slide">
-                    <div class="testimonial-content">
-                        <div class="quote-icon"><i class="fas fa-quote-left"></i></div>
-                        <p>Our Amazon Rainforest Expedition was the adventure of a lifetime! The local guides knew exactly where to find amazing wildlife, and the accommodations were comfortable yet authentic. Highly recommend!</p>
-                        <div class="testimonial-author">
-                            <h4>Sarah Williams</h4>
-                            <p>Amazon Rainforest Expedition</p>
-                        </div>
+                    <div class="testimonial-controls">
+                        <button id="prev-testimonial" aria-label="Previous testimonial"><i class="fas fa-chevron-left"></i></button>
+                        <div class="testimonial-dots" id="testimonial-dots"></div>
+                        <button id="next-testimonial" aria-label="Next testimonial"><i class="fas fa-chevron-right"></i></button>
                     </div>
-                </div>
-                <div class="testimonial-slide">
-                    <div class="testimonial-content">
-                        <div class="quote-icon"><i class="fas fa-quote-left"></i></div>
-                        <p>The African Safari was incredible! We saw the Big Five within the first three days, and our guide was exceptional at tracking animals and sharing fascinating information. A+ Adventures delivered a perfect experience.</p>
-                        <div class="testimonial-author">
-                            <h4>David & Emma Thompson</h4>
-                            <p>African Safari Adventure</p>
-                        </div>
-                    </div>
-                </div>
-                <div class="testimonial-controls">
-                    <button class="prev-btn" id="prev-testimonial"><i class="fas fa-chevron-left"></i></button>
-                    <div class="testimonial-dots" id="testimonial-dots">
-                        <span class="dot active"></span>
-                        <span class="dot"></span>
-                        <span class="dot"></span>
-                    </div>
-                    <button class="next-btn" id="next-testimonial"><i class="fas fa-chevron-right"></i></button>
                 </div>
             </div>
-        </div>
-    </section>
+        </section>
+    </main>
 
-    <!-- Newsletter -->
-    <section class="newsletter">
-        <div class="container">
-            <div class="newsletter-content">
-                <h2>Stay Updated on New Adventures</h2>
-                <p>Subscribe to our newsletter and be the first to know about special offers, new destinations, and exciting adventure tips.</p>
-                <form class="newsletter-form">
-                    <input type="email" placeholder="Your Email Address" required>
-                    <button type="submit" class="btn">Subscribe</button>
-                </form>
-            </div>
-        </div>
-    </section>
-
-    <!-- Footer -->
-    <footer>
+    <footer class="main-footer">
         <div class="container">
             <div class="footer-content">
                 <div class="footer-column">
                     <h3>A+ Adventures</h3>
-                    <p>Creating unforgettable adventure experiences since 2010. Committed to responsible tourism and sustainable practices.</p>
+                    <p>Creating unforgettable, sustainable adventure experiences since 2010.</p>
                     <div class="social-media">
-                        <a href="#"><i class="fab fa-facebook-f"></i></a>
-                        <a href="#"><i class="fab fa-instagram"></i></a>
-                        <a href="#"><i class="fab fa-twitter"></i></a>
-                        <a href="#"><i class="fab fa-youtube"></i></a>
+                        <a href="#" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+                        <a href="#" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
                     </div>
                 </div>
                 <div class="footer-column">
                     <h3>Quick Links</h3>
                     <ul>
-                        <li><a href="index.html">Home</a></li>
-                        <li><a href="adventures.html">Adventures</a></li>
-                        <li><a href="destinations.html">Destinations</a></li>
-                        <li><a href="gallery.html">Gallery</a></li>
                         <li><a href="about.html">About Us</a></li>
-                        <li><a href="contact.html">Contact Us</a></li>
+                        <li><a href="adventures.html">Adventures</a></li>
+                        <li><a href="gallery.html">Gallery</a></li>
+                        <li><a href="contact.html">Contact</a></li>
                     </ul>
                 </div>
                 <div class="footer-column">
                     <h3>Popular Adventures</h3>
                     <ul>
-                        <li><a href="#">Himalayan Trek Expedition</a></li>
-                        <li><a href="#">Amazon Rainforest Expedition</a></li>
-                        <li><a href="#">African Safari Adventure</a></li>
-                        <li><a href="#">Iceland Northern Lights</a></li>
-                        <li><a href="#">Great Barrier Reef Diving</a></li>
+                        <li><a href="#">Himalayan Trek</a></li>
+                        <li><a href="#">Amazon Expedition</a></li>
+                        <li><a href="#">African Safari</a></li>
+                        <li><a href="#">Reef Diving</a></li>
                     </ul>
                 </div>
                 <div class="footer-column">
                     <h3>Contact Info</h3>
                     <ul class="contact-info">
-                        <li><i class="fas fa-map-marker-alt"></i> 123 Adventure Street, Global City</li>
+                        <li><i class="fas fa-map-marker-alt"></i> 123 Adventure Ave, Global City</li>
                         <li><i class="fas fa-phone"></i> +1 (234) 567-8900</li>
                         <li><i class="fas fa-envelope"></i> info@aplusadventures.com</li>
                     </ul>
@@ -358,7 +267,6 @@
                 <div class="footer-links">
                     <a href="#">Privacy Policy</a>
                     <a href="#">Terms & Conditions</a>
-                    <a href="#">FAQ</a>
                 </div>
             </div>
         </div>
