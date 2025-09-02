@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>I Love You Animation</title>
+    <style>
+        body {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+            background-color: #000;
+            color: white;
+            font-family: Arial, sans-serif;
+            overflow: hidden;
+            margin: 0;
+        }
+        
+        .top-message {
+            font-size: 3rem;
+            margin-bottom: 50px;
+            position: relative;
+        }
+        
+        .emoji {
+            font-size: 3rem;
+            display: inline-block;
+        }
+        
+        .love-container {
+            background-color: #ffbb55;
+            width: 100%;
+            height: 300px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        
+        .love-text {
+            color: #8a2be2;
+            font-size: 3rem;
+            font-weight: bold;
+            padding: 20px;
+            border-left: 2px solid white;
+            border-right: 2px solid white;
+        }
+        
+        .letter {
+            display: inline-block;
+        }
+    </style>
+    <!-- Load mo.js from CDN -->
+    <script src="https://cdn.jsdelivr.net/npm/mo-js@0.288.2/build/mo-js.min.js"></script>
+</head>
+<body>
+    <div class="top-message">
+        I Love You<span class="emoji">😍</span>
+    </div>
+    
+    <div class="love-container">
+        <div class="love-text">
+            <span class="letter" id="i">I</span>
+            <span class="letter" id="l">L</span>
+            <span class="letter" id="o">O</span>
+            <span class="letter" id="v">V</span>
+            <span class="letter" id="e">E</span>
+            <span class="letter"> </span>
+            <span class="letter" id="y">Y</span>
+            <span class="letter" id="o2">O</span>
+            <span class="letter" id="u">U</span>
+        </div>
+    </div>
+    
+    <script>
+        // Wait for mo.js to be fully loaded
+        document.addEventListener('DOMContentLoaded', () => {
+            const createLoveTimeline = () => {
+                const move = 1000;
+                const boom = 200;
+                const easing = "sin.inOut";
+                const easingBoom = "sin.in";
+                const easingOut = "sin.out";
+                const opts = { duration: move, easing, opacity: 1 };
+                const delta = 150;
+                
+                // Create references to elements
+                const elements = {
+                    i: document.getElementById('i'),
+                    l: document.getElementById('l'),
+                    o: document.getElementById('o'),
+                    v: document.getElementById('v'),
+                    e: document.getElementById('e'),
+                    y: document.getElementById('y'),
+                    o2: document.getElementById('o2'),
+                    u: document.getElementById('u')
+                };
+                
+                // Create blop effect
+                const blopBurst = new mojs.Burst({
+                    radius:   { 0: 100 },
+                    count:    10,
+                    children: {
+                        shape:      'circle',
+                        fill:       ['#FF9500', '#FFDB4D', '#FF5E3A', '#FF2A68'],
+                        duration:   boom,
+                        easing:     easingBoom
+                    }
+                });
+                
+                // First animation: fade in letters with delay
+                const letters = [elements.i, elements.l, elements.o, elements.v, elements.e, 
+                               elements.y, elements.o2, elements.u];
+                
+                letters.forEach((el, index) => {
+                    el.style.opacity = 0;
+                    
+                    // Create tween for each letter
+                    new mojs.Tween({
+                        duration: 300,
+                        delay: index * 100,
+                        onUpdate: function(progress) {
+                            el.style.opacity = progress;
+                            el.style.transform = `scale(${0.5 + (progress * 0.5)})`;
+                        },
+                        onComplete: function() {
+                            if (index === letters.length - 1) {
+                                // After last letter, create pulsing effect
+                                createPulsingEffect();
+                            }
+                        }
+                    }).play();
+                });
+                
+                function createPulsingEffect() {
+                    // Create pulsing effect after all letters appear
+                    letters.forEach((el, index) => {
+                        new mojs.Tween({
+                            duration: 1000,
+                            repeat: 999,
+                            delay: index * 50,
+                            onUpdate: function(progress) {
+                                const pulse = Math.sin(progress * Math.PI) * 0.1 + 1;
+                                el.style.transform = `scale(${pulse})`;
+                            }
+                        }).play();
+                    });
+                    
+                    // Create burst effect
+                    blopBurst
+                        .tune({ x: window.innerWidth/2, y: window.innerHeight/2 })
+                        .setSpeed(2)
+                        .replay();
+                }
+            };
+            
+            // Start animation
+            createLoveTimeline();
+        });
+    </script>
+</body>
+</html>
