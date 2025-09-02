@@ -5,29 +5,25 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>I Love You Animation</title>
     <style>
-        /* This CSS styles the page to look like the image */
         body {
             margin: 0;
             font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
-            background-color: #f3b562; /* Yellow-orange background */
+            background-color: #f3b562;
             color: white;
             display: flex;
             justify-content: center;
             align-items: center;
-            height: 100vh; /* Make it full screen */
+            height: 100vh;
             text-align: center;
             overflow: hidden;
         }
-
         .container {
             position: relative;
-            font-size: 5vw; /* Responsive font size */
+            font-size: 5vw;
             font-weight: bold;
             letter-spacing: 0.5em;
             text-transform: uppercase;
         }
-        
-        /* These are the decorative lines on the side */
         .container::before, .container::after {
             content: '';
             position: absolute;
@@ -37,18 +33,10 @@
             background-color: white;
             opacity: 0.5;
         }
-
-        .container::before {
-            left: -30px;
-        }
-
-        .container::after {
-            right: -30px;
-        }
-        
-        /* We need to style each letter so we can animate it */
+        .container::before { left: -30px; }
+        .container::after { right: -30px; }
         .letter {
-            display: inline-block; /* Allows us to animate position */
+            display: inline-block;
             position: relative;
         }
     </style>
@@ -58,10 +46,10 @@
     <div class="container" id="text-container">
         <span class="letter">I</span>
         <span class="letter">&nbsp;</span>
-        <span class="letter">L</span>
-        <span class="letter">O</span>
-        <span class="letter">V</span>
-        <span class="letter">E</span>
+        <span class="letter love-letter">L</span>
+        <span class="letter love-letter">O</span>
+        <span class="letter love-letter">V</span>
+        <span class="letter love-letter">E</span>
         <span class="letter">&nbsp;</span>
         <span class="letter">Y</span>
         <span class="letter">O</span>
@@ -71,29 +59,73 @@
     <script src="https://cdn.jsdelivr.net/npm/@mojs/core@latest/mojs.min.js"></script>
 
     <script>
-        // Select all the letters we want to animate
-        const letters = document.querySelectorAll('.letter');
+        // --- PART 1: Define all the elements and animations ---
 
-        // Create a new animation "timeline" with mo.js
-        const timeline = new mojs.Timeline();
-
-        // Loop through each letter and create an animation for it
-        letters.forEach((letter, index) => {
-            const animation = new mojs.Html({
-                el: letter,          // The element to animate (one of our letters)
-                opacity: { 0: 1 },     // Fade from invisible (0) to visible (1)
-                y: { '100%': '0%' }, // Move up from below its position
-                scale: { 0.5: 1 },   // Grow from half size to full size
-                duration: 800,       // How long the animation takes in milliseconds
-                delay: index * 100,  // Stagger the start of each letter's animation
-                easing: 'elastic.out' // A bouncy easing effect
-            });
-            // Add this letter's animation to the main timeline
-            timeline.add(animation);
+        // Select the specific letters we need to hide later
+        const loveLetters = document.querySelectorAll('.love-letter');
+        const allLetters = document.querySelectorAll('.letter');
+        
+        // Define the "bloop" animation. The image code calls it but doesn't show what it is.
+        // Let's make it a cool heart burst!
+        const bloop = new mojs.Burst({
+            parent: '#text-container', // Attach to the text container
+            radius: { 50: 150 },
+            angle: 45,
+            count: 12,
+            children: {
+                shape: 'heart',
+                fill: '#E5214A',
+                scale: { 1: 0, easing: 'sin.in' },
+                duration: 1500,
+                easing: 'elastic.out'
+            }
         });
 
-        // Play the whole timeline!
-        timeline.play();
+        // --- PART 2: Build the animation timeline ---
+
+        const mainTimeline = new mojs.Timeline();
+
+        // Animation to make all the letters appear initially
+        const appearAnimation = new mojs.Html({
+            el: allLetters,
+            opacity: { 0: 1 },
+            y: { 50: 0 },
+            duration: 600,
+            delay: 'stagger(75)', // Stagger makes them appear one after another
+            easing: 'cubic.out'
+        });
+
+        // This part is the logic FROM YOUR IMAGE
+        // We create a "Tween" which is just a timer. It waits for 1000ms.
+        const disappearTween = new mojs.Tween({
+            duration: 1000, // This is the 'move = 1000' from the image
+            onComplete: () => {
+                // When the timer finishes, hide the "LOVE" letters...
+                loveLetters.forEach(el => {
+                    new mojs.Html({
+                        el: el,
+                        opacity: { 1: 0 },
+                        y: { 0: -50 },
+                        duration: 600,
+                        easing: 'cubic.in'
+                    }).play();
+                });
+                
+                // ...and play our heart burst animation.
+                bloop.play();
+            }
+        });
+
+        // --- PART 3: Put it all together and play it ---
+
+        // Add the animation for the letters appearing
+        mainTimeline.add(appearAnimation);
+
+        // Add the timer that will trigger the disappearance
+        mainTimeline.add(disappearTween);
+
+        // Play the entire sequence!
+        mainTimeline.play();
     </script>
 
 </body>
